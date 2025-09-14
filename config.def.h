@@ -66,8 +66,8 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
+	{ hostname, " %s |", NULL },
 	{ ram_perc, "  %2s%% |",    NULL    },
-//	{ cpu_perc, " CPU %2s%%",    NULL    },
 	{ cpu_perc, " 󰻠 %2s%%",    NULL    },
 	{ cpu_freq, " %4s",    NULL    },
         { run_command," %s |", "sensors | awk '/^Tctl/ { print $2 }'" },
