@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 5000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -73,7 +73,7 @@ static const struct arg args[] = {
         { run_command," %s |", "sensors | awk '/^Tctl/ { print $2 }'" },
 	{ netspeed_tx, " 󰱦 %9s", "enp3s0" },
 	{ netspeed_rx, " 󰳘 %8s |", "enp3s0" },
-	{ datetime, " %s |",          "%F %T" },
+	{ datetime, " %s |","%H:%M  %a. %d %b. %Y" },
         { run_command,"  %s |", "sensors | awk '/^Sensor 2:/ {print $3}'|awk 'NR == 2'" },
         { run_command," Rodez %s", "cat ~/.local/bin/weather|awk '{print $2 $3}'" },
 };
