@@ -50,7 +50,7 @@ static const char unknown_str[] = "n/a";
  * swap_perc           swap usage in percent           NULL
  * swap_total          total swap size in GB           NULL
  * swap_used           used swap in GB                 NULL
-	 * temp                temperature in degree celsius   sensor file
+ * temp                temperature in degree celsius   sensor file
  *                                                     (/sys/class/thermal/...)
  *                                                     NULL on OpenBSD
  *                                                     thermal zone on FreeBSD
@@ -66,14 +66,15 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ hostname, " %s |", NULL },
-	{ ram_perc, "  %2s%% |",    NULL    },
-	{ cpu_perc, " 󰻠 %2s%%",    NULL    },
-	{ cpu_freq, " %4s",    NULL    },
-        { run_command," %s |", "sensors | awk '/^Tctl/ { print $2 }'" },
-	{ netspeed_tx, " 󰱦 %9s", "enp3s0" },
-	{ netspeed_rx, " 󰳘 %8s |", "enp3s0" },
-	{ datetime, " %s |","%H:%M  %a. %d %b. %Y" },
-        { run_command,"  %s |", "sensors | awk '/^Sensor 2:/ {print $3}'|awk 'NR == 2'" },
-        { run_command," Rodez %s", "cat ~/.local/bin/weather|awk '{print $2 $3}'" },
+    { hostname, "%s|", NULL },
+    { ram_used, " %2s|",    NULL    },
+/*  { cpu_perc, " 󰻠 %2s%%",    NULL    },
+    { cpu_freq, " %4s",    NULL    },
+        { run_command," %s |", "sensors | awk '/^Tctl/ { print $2 }'" },*/
+    { netspeed_tx, "󰱦 %9s", "enp3s0" },
+    { netspeed_rx, "󰳘 %8s|", "enp3s0" },
+    { datetime, "%s|","%H:%M  %a.%d %b." },
+/*        { run_command,"  %s |", "sensors | awk '/^Sensor 2:/ {print $3}'|awk 'NR == 2'" },*/
+        { run_command,"Rodez %s", "cat ~/.local/bin/weather|awk '{print $2 $3}'" },
+
 };
